@@ -85,7 +85,7 @@ Arguments:
 To interpret model predictions and generate visualizations of atom importance:
 ```bash
 cd src
-python explainer.py --model_path "../finetuned/pretrained_moldeberta-tiny-10M-mlm-bace-regression-finetuned" --smiles "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O" --target_label 0
+python explainer.py --model_path "../finetuned/pretrained_moldeberta-tiny-10M-mlc-bace-regression-finetuned" --smiles "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O" --target_label 0
 ```
 Arguments:
 * **--model_path**: Path to a model finetuned on a specific task (can be a HuggingFace model or a local directory)
