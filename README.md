@@ -34,7 +34,7 @@ conda activate moldeberta
 
 ## Running the Experiments
 ### Pretraining
-Below is an example command for pretraining MolDeBERTa models:
+Follow the steps below to pretrain the MolDeBERTa models.
 
 1. Train the tokenizer
 ```bash
@@ -43,71 +43,54 @@ python train_tokenizer.py
 ```
 ---
 
-2. Generate molecule descriptors and structure features for MTR, MLC, and contrastive-based objectives:
+2. Generate molecule descriptors and features Prepare the data for MTR, MLC, and contrastive objectives:
 ```bash
 cd src
 python generate_data.py --dataset 10M
 ```
-You can use the following parameters for **dataset**:
-* **10M**: dataset with 10M SMILES
-* **123M**: dataset with 123M SMILES
+Arguments:
+**--dataset**: Dataset size (10M or 123M)
 
 ---
 
-3. Pretrain MolDeBERTa:
+3. Run the script corresponding to your desired objective:
 ```bash
 cd src
 python mlc.py --model_size tiny --dataset 10M
 ```
-You can change the filename depending on pretraining objective:
-* `mlm.py`: pretraining based on MLM objective
-* `mlc.py`: pretraining based on MLC objective
-* `mtr.py`: pretraining based on MTR objective
-* `contrastive_mlc.py`: pretraining based on contrastive-based MLC objective
-* `contrastive_mtr.py`: pretraining based on contrastive-based MTR objective
+Available pretraining scripts:
+* `mlm.py`: Masked Language Modeling (MLM)
+* `mlc.py`: Multi-Label Classification (MLC)
+* `mtr.py`: Multi-Task Regression (MTR)
+* `contrastive_mlc.py`: Contrastive-based MLC
+* `contrastive_mtr.py`: Contrastive-based MTR
 
-You can use the following parameters for **model_size**:
-* **tiny**: tiny architecture
-* **small**: small architecture
-* **base**: base architecture
+Arguments:
+* **--model_size**: Architecture size (tiny, small, or base)
+* **--dataset**: Dataset size (10M or 123M)
 
-You can use the following parameters for **dataset**:
-* **10M**: dataset with 10M SMILES
-* **123M**: dataset with 123M SMILES
 ---
 
 ### Finetuning
-Below is an example command for finetuning:
-
+To finetune a pretrained model on downstream tasks:
 ```bash
 cd src
 python finetuning.py --model_path ../pretrained/moldeberta-tiny-10M-mlc --task bace-regression
 ```
-You can use the any model path (HuggingFace path ou local path) for **model_path**
-
-You can use the following parameters for **task**:
-* **bace-classification**: bace classification task
-* **bace-regression**: bace regression task
-* **bbbp**: bbbp task
-* **clearance**: clearance task
-* **clintox**: clintox task
-* **delaney**: delaney task
-* **hiv**: hiv task
-* **lipo**: lipo task
-* **tox21**: tox21 task
+Arguments:
+* **--model_path**: Path to the model (can be a HuggingFace model or a local directory)
+* **--task**: The downstream task to evaluate. Options: `bace-classification`, `bace-regression`, `bbbp`, `clearance`, `clintox`, `delaney`, `hiv`, `lipo`, `tox21`
 
 ### Explainer
-Below is an example command for explain the prediction, generating an image showing the atom importance for the model prediction:
-
+To interpret model predictions and generate visualizations of atom importance:
 ```bash
 cd src
 python explainer.py --model_path "../finetuned/pretrained_moldeberta-tiny-10M-mlm-bace-regression-finetuned" --smiles "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O" --target_label 0
 ```
-You can use any model pretrained model on a specific task (HuggingFace path ou local path) for **model_path**
-
-You can use any smiles string in the parameter **smiles**
-
-You can select which is the target label in **target_label**. If is has only one target label (such as regression tasks in the finetuning evaluated tasks), you should use **0**. Otherwise, if it has multiple output neurons (such as binary or multi-classification tasks), you can use from **0** up to **n-1** (the number of output neurons minus 1)
+Arguments:
+* **--model_path**: Path to a model finetuned on a specific task (can be a HuggingFace model or a local directory)
+* **--smiles**: The SMILES string of the molecule to analyze
+* **--target_label**: The index of the output neuron to explain. Use `0` for regression tasks (single output). Use `0` to `n-1` for classification tasks (where `n` is the number of classes)
 
 ---
 
