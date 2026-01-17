@@ -39,9 +39,9 @@ VALID_DATASETS = ['10M', '123M']
 )
 def main(dataset):
   if dataset == '10M':
-    dataset_dict = load_dataset("SaeedLab/PubChem", data_dir="10M")
+    dataset_dict = load_dataset("SaeedLab/MolDeBERTa", data_dir="10M")
   else:
-    dataset_dict = load_dataset("SaeedLab/PubChem", data_dir="123M")
+    dataset_dict = load_dataset("SaeedLab/MolDeBERTa", data_dir="123M")
   
   dataset_dict = dataset_dict['train'].select(range(CHUNK_SIZE*3))
 

@@ -21,9 +21,9 @@ VALID_DATASETS = ['10M', '123M']
 
 def main(model_size, dataset):
   if dataset == '10M':
-    dataset_dict = load_dataset("SaeedLab/PubChem", data_dir="10M")
+    dataset_dict = load_dataset("SaeedLab/MolDeBERTa", data_dir="10M")
   else:
-    dataset_dict = load_dataset("SaeedLab/PubChem", data_dir="123M")
+    dataset_dict = load_dataset("SaeedLab/MolDeBERTa", data_dir="123M")
   
   dataset_dict = dataset_dict['train']
   split_dataset = dataset_dict.train_test_split(test_size=0.01, seed=42)

@@ -5,7 +5,7 @@ import os
 
 os.makedirs("../moldeberta-tokenizer", exist_ok=True)
 
-dataset_dict = load_dataset("SaeedLab/PubChem", data_dir="10M")
+dataset_dict = load_dataset("SaeedLab/MolDeBERTa", data_dir="10M")
 dataset = dataset_dict['train']
 
 def batch_iterator(batch_size=10000):
