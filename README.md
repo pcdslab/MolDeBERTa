@@ -2,6 +2,8 @@
 
 MolDeBERTa: Grounding Molecular Encoders in Chemical Reality via Chemistry-Informed Pretraining
 
+\[[Dataset on HuggingFace](https://huggingface.co/datasets/SaeedLab/MolDeBERTa)\] | \[[Model Collection](https://huggingface.co/collections/SaeedLab/moldeberta)\] | \[[Cite](#citation)\]
+
 The paper is under review.
 
 ## Abstract
