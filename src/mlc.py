@@ -92,7 +92,6 @@ def main(model_size, dataset):
     batch_size = 512
     learning_rate = 5e-5
 
-  '''
   if dataset == '10M':
     total_chunks_available = 1000
   else:
@@ -104,9 +103,6 @@ def main(model_size, dataset):
   split_idx = int(len(all_chunks) * 0.99)
   train_chunks = all_chunks[:split_idx]
   val_chunks = all_chunks[split_idx:]
-  '''
-  train_chunks = [0, 1]
-  val_chunks = [2]
 
   train_dataset = SMILESDataset(train_chunks, dataset)
   val_dataset = SMILESDataset(val_chunks, dataset)

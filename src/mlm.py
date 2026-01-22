@@ -27,8 +27,8 @@ def main(model_size, dataset):
   
   dataset_dict = dataset_dict['train']
   split_dataset = dataset_dict.train_test_split(test_size=0.01, seed=42)
-  train_dataset = split_dataset["train"].select(range(10))
-  valid_dataset = split_dataset["test"].select(range(10))
+  train_dataset = split_dataset["train"]
+  valid_dataset = split_dataset["test"]
 
   tokenizer = AutoTokenizer.from_pretrained("../moldeberta-tokenizer", use_fast=True)
 

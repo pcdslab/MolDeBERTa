@@ -131,16 +131,12 @@ def main(model_size, dataset):
     total_chunks_available = 12300
     EPOCHS = 10
 
-  '''
   all_chunks = list(range(total_chunks_available))
   random.shuffle(all_chunks)
 
   split_idx = int(len(all_chunks) * 0.99)
   train_chunks = all_chunks[:split_idx]
   val_chunks = all_chunks[split_idx:]
-  '''
-  train_chunks = [0, 1]
-  val_chunks = [2]
 
   running_sum = np.zeros(216, dtype=np.float64)
   running_sq_sum = np.zeros(216, dtype=np.float64)

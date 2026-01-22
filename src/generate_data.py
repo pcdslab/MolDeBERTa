@@ -43,7 +43,7 @@ def main(dataset):
   else:
     dataset_dict = load_dataset("SaeedLab/MolDeBERTa", data_dir="123M")
   
-  dataset_dict = dataset_dict['train'].select(range(CHUNK_SIZE*3))
+  dataset_dict = dataset_dict['train']
 
   chunk = []
   chunk_idx = 0

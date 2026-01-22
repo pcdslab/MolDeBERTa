@@ -98,7 +98,7 @@ def main(model_path, task):
     best_run = trainer.hyperparameter_search(
     direction="minimize",
     backend="optuna",
-    n_trials=1,
+    n_trials=20,
     hp_space=lambda _: {
       "learning_rate": np.random.uniform(1e-5, 5e-4),
       "per_device_train_batch_size": np.random.choice([16, 32, 64]),
@@ -135,7 +135,7 @@ def main(model_path, task):
     best_run = trainer.hyperparameter_search(
       direction="maximize",
       backend="optuna",
-      n_trials=1,
+      n_trials=20,
       hp_space=lambda _: {
         "learning_rate": np.random.uniform(1e-5, 5e-4),
         "per_device_train_batch_size": np.random.choice([16, 32, 64]),
