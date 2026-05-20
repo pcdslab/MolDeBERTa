@@ -2,9 +2,7 @@
 
 MolDeBERTa: Foundational Model for Physicochemical and Substructure-Informed Molecular Representation Learning
 
-\[[Dataset on HuggingFace](https://huggingface.co/datasets/SaeedLab/MolDeBERTa)\] | \[[Model Collection](https://huggingface.co/collections/SaeedLab/moldeberta)\] | \[[Cite](#citation)\]
-
-The paper is under review.
+\[[Paper](https://www.biorxiv.org/content/10.64898/2026.02.15.706011v1)\] | \[[Dataset on HuggingFace](https://huggingface.co/datasets/SaeedLab/MolDeBERTa)\] | \[[Model Collection](https://huggingface.co/collections/SaeedLab/moldeberta)\] | \[[Cite](#citation)\]
 
 ## Abstract
 Foundational models that learn the "language" of molecules are essential for accelerating material and drug discovery. These self-learning models can be trained on large collections of unlabelled molecules, enabling applications such as property prediction, molecule design, and screening for specific functions. However, existing molecular language models rely on masked language modeling, a generic token-level objective that is agnostic to physicochemical and substructure molecular properties. Here we introduce MolDeBERTa, a chemistry-informed self-supervised molecular encoder built upon the DeBERTaV2 architecture with byte-level Byte-Pair Encoding (BPE) tokenization. MolDeBERTa is pretrained on up to 123 million SMILES from PubChem using three novel pretraining objectives designed to inject strong inductive biases for molecular properties and substructure similarity directly into the latent space. The model is systematically investigated across three architectural scales, two dataset sizes, and five distinct pretraining objectives, of which three are novel and two are adapted from prior work. When evaluated on 9 MoleculeNet benchmarks, MolDeBERTa achieves the best overall performance on 4 out of 9 tasks and outperforms SMILES-based encoders on 7 out of 9 tasks, with up to a 16% reduction in regression error, and improvements of up to 2.2 ROC-AUC points on classification tasks.
@@ -97,7 +95,19 @@ Arguments:
 ---
 
 ## Citation
-The paper is under review. As soon as it is accepted, we will update this section.
+
+If you use MolDeBERTa in your research, please cite:
+
+```bibtex
+@article{moldeberta2026,
+  title     = {MolDeBERTa: Foundational Model for Physicochemical and Structural-Informed Molecular Representation Learning},
+  author    = {Oliveira, Gabriel Bianchin de and Saeed, Fahad},
+  journal   = {bioRxiv},
+  year      = {2026},
+  doi       = {10.64898/2026.02.15.706011},
+  url       = {https://www.biorxiv.org/content/10.64898/2026.02.15.706011}
+}
+```
 
 ## License
 
